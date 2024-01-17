@@ -1,18 +1,22 @@
-import './App.css';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Main from './components/Main';
-import Nav from './components/Nav';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ThemeProvider } from "styled-components";
+import GlobalStyles from "./styles/global";
+import theme from "./styles/theme";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./routes";
 
 function App() {
   return (
-    <>
-    <Header />
-    <Nav />
-    <Main/>
-    <Footer />
-    </>
-  );
+    <React.StrictMode>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Routes />
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
 }
 
 export default App;
